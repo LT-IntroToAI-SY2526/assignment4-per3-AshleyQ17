@@ -11,7 +11,7 @@ class Dog:
      favorite_food - the dog's favotite food
      """
 
-    def __init__(self, fur_color, name, age, favorite_food):
+    def __init__(self, fur_color="black", name="no name", age = 1, favorite_food = "kibble"):
         """"Initialize a new Dog with fur_color, name, agem and favorite food"""
         self.fur_color = fur_color
         self.name = name
@@ -26,11 +26,28 @@ class Dog:
         """make the dog bark"""
         return f"{self.name} says Woof, Woof!"
 
+    def birthday(self):
+        """Celebrate the dog's birthday"""
+        self.age +=1
+        print(f"Celebrating {self.name}'s birthday, they are now {self.age} years old")
 
-my_dog = Dog("black", "Logan", 9, "Salmon")
-enggy_dog = Dog ("black and white", "Peluchin", 13, "Rice")
+    def change_favorite_food(self, new_food):
+        """change the favorite food of the dog"""
+        self.favorite_food = new_food
+        print(f"{self.name} used to love {old_food} and noe loves {self.favorite_food}")
+
+
+my_dog = Dog("black", "logan", 9, "Salmon")
+enggy_dog = Dog ("black and white", "peluchin", 13, "Rice")
+default_dog = Dog()
+aaron_dog = Dog("peach and white", "dumbo", favorite_food="anything edible")
 
 print(my_dog)
 print(enggy_dog)
+print(default_dog)
+print(aaron_dog)
 
 print (enggy_dog.bark())
+aaron_dog.birthday()
+
+print(aaron_dog)
