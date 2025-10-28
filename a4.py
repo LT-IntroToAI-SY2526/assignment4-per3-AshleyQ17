@@ -16,7 +16,7 @@ class TTTBoard:
 
     def __str__(self):
         """return a string representation of the TTTBoard"""
-
+        print(f"{self.playerO_move},   \n")
 
     pass
 
