@@ -9,17 +9,27 @@ class TTTBoard:
         board - a list of '*'s, 'X's & 'O's. 'X's represent moves by player 'X', 'O's
             represent moves by player 'O' and '*'s are spots no one has yet played on
     """
-    def __init__(self, playerO_move = "O", playerX_move = "X", empty_spot = "*" ):
-        self.playerO_move = playerO_move
-        self.playerX_move = playerX_move
-        self.empty_spot = empty_spot
+    def __init__(self):
+        self.board = ['*'] * 9
 
     def __str__(self):
         """return a string representation of the TTTBoard"""
-        print(f"{self.playerO_move},   \n")
+        return f"{self.board[0]} {self.board[1]} {self.board[2]}\n{self.board[3]} {self.board[4]} {self.board[5]}\n{self.board[6]} {self.board[7]} {self.board[8]}"
+    
+    def make_move(self, player, pos):
+        """places a move for the player at position pos if valid"""
+        if 0 <= pos <= 8 and self.board[pos] == '*':
+            self.board[pos] = player
+            return True
+        return False
 
-    pass
+    def has_won(self, player)
+        """check if the player has won"""
+        pass
 
+    def game_over(self):
+        """check if the game is over (someone has won or board is full)"""
+        return self.has_won("X") or self.has_won("O") or "*" not in self.board
 
 def play_tic_tac_toe() -> None:
     """Uses your class to play TicTacToe"""
@@ -71,6 +81,7 @@ if __name__ == "__main__":
     brd = TTTBoard()
     brd.make_move("X", 8)
     brd.make_move("O", 7)
+    print(brd)
 
     assert brd.game_over() == False
 
