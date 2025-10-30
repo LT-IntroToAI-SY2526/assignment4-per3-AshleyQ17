@@ -10,26 +10,36 @@ class TTTBoard:
             represent moves by player 'O' and '*'s are spots no one has yet played on
     """
     def __init__(self):
+        """initialize a 3x3 tic tac toe board with 9 '*'"""
         self.board = ['*'] * 9
 
     def __str__(self):
-        """return a string representation of the TTTBoard"""
+        """return a string representation of the board"""
         return f"{self.board[0]} {self.board[1]} {self.board[2]}\n{self.board[3]} {self.board[4]} {self.board[5]}\n{self.board[6]} {self.board[7]} {self.board[8]}"
-    
+
     def make_move(self, player, pos):
         """places a move for the player at position pos if valid"""
         if 0 <= pos <= 8 and self.board[pos] == '*':
             self.board[pos] = player
             return True
         return False
-
-    def has_won(self, player)
+    
+    def has_won(self, player):
         """check if the player has won"""
-        pass
+        winning_combos = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+
+        for combo in winning_combos:
+            if self.board[combo[0]] == player and self.board[combo[1]] == player and self.board[combo[2]] == player:
+                return True
+        return False
 
     def game_over(self):
-        """check if the game is over (someone has won or board is full)"""
-        return self.has_won("X") or self.has_won("O") or "*" not in self.board
+        """check if the game is over (someone has won or the board is full)"""
+        return self.has_won("X") or self.has_won("O") or '*' not in self.board
+    
+    def clear(self):
+        """clears the board for a new game"""
+        self.board = ['*'] * 9
 
 def play_tic_tac_toe() -> None:
     """Uses your class to play TicTacToe"""
@@ -108,4 +118,4 @@ if __name__ == "__main__":
     print("All tests passed!")
 
     # uncomment to play!
-    # play_tic_tac_toe()
+    play_tic_tac_toe()
